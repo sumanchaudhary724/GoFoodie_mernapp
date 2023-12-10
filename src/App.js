@@ -1,7 +1,12 @@
 import "./App.css";
+import Home from "./screens/Home";
 
 function App() {
-  return <div className="fs-1">Hello world</div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
 
 export default App;
