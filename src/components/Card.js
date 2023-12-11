@@ -4,7 +4,11 @@ export default function Card() {
   return (
     <div>
       <div className="card mt-3" style={{ width: "18rem", maxHeight: "360px" }}>
-        <img src="..." class="card-img-top" alt="..." />
+        <img
+          src="https://source.unsplash.com/random/400×300/?burger"
+          class="card-img-top"
+          alt="..."
+        />
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">This is some Important text..</p>
