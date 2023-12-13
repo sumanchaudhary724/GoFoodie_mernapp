@@ -6,11 +6,11 @@ const mongoDB = async () => {
   try {
     await mongoose.connect(mongoURI);
     console.log("Connected to MongoDB");
-
-    const collection = mongoose.connection.db.collection("food_items");
-    const data = await collection.find({}).toArray();
-
-    console.log("Fetched data:", data);
+    const fetched_data = await mongoose.connection.db.collection("food_items");
+    fetched_data.find({}).toArray(function (err, data) {
+      if (err) console.log(err);
+      else console.log(data);
+    });
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
   }
