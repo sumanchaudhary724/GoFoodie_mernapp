@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
+import Card from "../components/Card";
 
 export default function Home() {
   const [foodCat, setFoodCat] = useState([]);
@@ -46,11 +47,11 @@ export default function Home() {
       </div>
       <div className="container">
         {foodCat.length !== 0 ? (
-          foodCat.map((data, index) => (
-            <div key={index}>{data.CategoryName}</div>
-          ))
+          foodCat.map((data, index) => <div key={index}>Hello World</div>)
         ) : (
-          <p>No food categories available.</p>
+          <div>
+            <Card />
+          </div>
         )}
       </div>
       <div>
