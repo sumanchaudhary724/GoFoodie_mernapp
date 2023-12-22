@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/foodData", (req, res) => {
+router.post("/foodData", async (req, res) => {
   try {
-    console.log(global.food_items, global.foodCategory);
-    res.send([global.food_items, global.foodCategory]);
+    console.log({
+      food_items: global.food_items,
+      foodCategory: global.foodCategory,
+    });
+    res.json({
+      food_items: global.food_items,
+      foodCategory: global.foodCategory,
+    });
   } catch (error) {
-    console.log(error.message);
-    res.send("Server error");
+    console.error("Error fetching data:", error.message);
+    res.status(500).json({ error: "Server error" });
   }
 });
 
