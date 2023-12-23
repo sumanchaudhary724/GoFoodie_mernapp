@@ -3,6 +3,8 @@ import React from "react";
 export default function Card(props) {
   const options = props.options || {};
   const priceOptions = Object.keys(options);
+  const foodItem = props.foodItem;
+  const handleAddToCart = () => {};
 
   return (
     <div className="mt-3">
@@ -36,6 +38,13 @@ export default function Card(props) {
 
             <div className="d-inline h-100 fs-5">Total Price</div>
           </div>
+          <hr />
+          <button
+            className="btn btn-success text-black justify-center ms-2"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
