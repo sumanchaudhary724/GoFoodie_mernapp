@@ -5,12 +5,13 @@ export default function Card(props) {
   const priceOptions = Object.keys(options);
 
   return (
-    <div>
+    <div className="mt-3">
       <div className="card mt-3" style={{ width: "18rem", maxHeight: "360px" }}>
         <img
           src="https://source.unsplash.com/random/400×300/?burger"
           className="card-img-top"
           alt="..."
+          style={{ height: "120px", objectFit: "fill" }}
         />
         <div className="card-body">
           <h5 className="card-title">{props.foodName}</h5>
