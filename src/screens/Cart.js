@@ -1,9 +1,11 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
+
 export default function Cart() {
   let data = useCart();
-
   let dispatch = useDispatchCart();
+
   if (data.length === 0) {
     return (
       <div>
@@ -18,10 +20,9 @@ export default function Cart() {
 
   return (
     <div>
-      {console.log(data)}
-      <div className="container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md">
+      <div className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md">
         <table className="table table-hover ">
-          <thead className=" text-success fs-4">
+          <thead className="text-success fs-4">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
@@ -33,13 +34,23 @@ export default function Cart() {
           </thead>
           <tbody>
             {data.map((food, index) => (
-              <tr>
+              <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>{food.name}</td>
                 <td>{food.qty}</td>
                 <td>{food.size}</td>
                 <td>{food.price}</td>
-                <td></td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn p-0"
+                    onClick={() => {
+                      dispatch({ type: "REMOVE", index: index });
+                    }}
+                  >
+                    <FaTrash />
+                  </button>{" "}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -48,7 +59,7 @@ export default function Cart() {
           <h1 className="text-white fs-2">Total Price: {totalPrice}/-</h1>
         </div>
         <div>
-          <button className="btn bg-success mt-5 "> Check Out </button>
+          <button className="btn btn-success mt-5">Check Out</button>
         </div>
       </div>
     </div>
