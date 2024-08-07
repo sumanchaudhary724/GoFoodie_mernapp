@@ -10,7 +10,7 @@ export default function Cart() {
     return (
       <div>
         <div className="m-5 w-100 text-white text-center fs-3">
-          The Cart is Empty!!!
+          The Cart is Empty!
         </div>
       </div>
     );
